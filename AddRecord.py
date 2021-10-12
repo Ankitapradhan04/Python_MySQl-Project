@@ -1,0 +1,11 @@
+def add_parking_type_record():
+    clear()
+    name = input('Enter Parking Type( 1. Two wheelar 2. Car 3. Bus 4. Truck 5. Trolly ) : ')
+    price =  input('Enter Parking Price per day : ')
+    sql = 'insert into parking_type(name,price) values("{}",{});'.format(name,price)
+    cursor.execute(sql)
+    print('\n\n New Parking Type added....')
+    cursor.execute('select max(id) from parking_type')
+    no = cursor.fetchone()
+    print(' New Parking Type ID is : {} \n\n\n'.format(no[0]))
+    wait= input('\n\n\nPress any key to continue............')
